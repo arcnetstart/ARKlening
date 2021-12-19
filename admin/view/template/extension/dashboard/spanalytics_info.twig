@@ -1,0 +1,727 @@
+<script src="/admin/view/javascript/spanalytics/chart.js"></script>
+<script src="/admin/view/javascript/spanalytics/jquery.dataTables.js" type="text/javascript"></script>
+<link href="/admin/view/javascript/spanalytics/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+
+<div id="spanalytics" class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> {{ heading_title }}</h3>
+    <span class="info_top_header">{{ text_orders_total }} {{ total }}</span>
+    <span class="info_top_header">{{ text_orders_summ }} {{ total_sale_sum }}</span>
+    <span class="info_top_header">{{ text_customer_num }} {{ total_customer }}</span>
+    <a title="{{ text_settings }}" href="{{ link_setting }}" class="close" style="opacity:1;color:#d10024;"><i class="fa fa-cog"></i></a>
+  </div>
+  <div class="panel-body">
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#sessions" id="tabss_sessions" aria-controls="sessions" role="tab" data-toggle="tab"><i class="fa fa-line-chart"></i> {{ text_tab_1 }}</a></li>
+      <li role="presentation"><a href="#pages" id="tabss_pages" aria-controls="pages" role="tab" data-toggle="tab"><i class="fa fa-file-o"></i> <span class="txt_wrap"></span>{{ text_tab_2 }}</a></li>
+      <li role="presentation"><a href="#realtime" id="tabss_realtime" aria-controls="realtime" role="tab" data-toggle="tab"><i class="fa fa-clock-o"></i> {{ text_tab_3 }}</a></li>
+      <li role="presentation"><a href="#countries" id="tabss_countries" aria-controls="countries" role="tab" data-toggle="tab"><i class="fa fa-globe"></i> {{ text_tab_4 }}</a></li>
+      <li role="presentation"><a href="#browsers" id="tabss_browsers" aria-controls="browsers" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i> {{ text_tab_5 }}</a></li>
+      <li role="presentation"><a href="#lang" id="tabss_lang" aria-controls="lang" role="tab" data-toggle="tab"><i class="fa fa-language"></i> {{ text_tab_6 }}</a></li>
+      <li role="presentation"><a href="#os" id="tabss_os" aria-controls="os" role="tab" data-toggle="tab"><i class="fa fa-desktop"></i> {{ text_tab_7 }}</a></li>
+      <li role="presentation"><a href="#devices" id="tabss_devices" aria-controls="devices" role="tab" data-toggle="tab"><i class="fa fa-mobile"></i> {{ text_tab_8 }}</a></li>
+      <li role="presentation"><a href="#screenres" id="tabss_screenres" aria-controls="screenres" role="tab" data-toggle="tab"><i class="fa fa-arrows-alt"></i> {{ text_tab_9 }}</a></li>
+      <li role="presentation"><a href="#source" id="tabss_source" aria-controls="source" role="tab" data-toggle="tab"><i class="fa fa-external-link-square"></i> {{ text_tab_11 }}</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="sessions">
+        <div class="col-sm-12">
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="mini_tab_1_c" style="min-height:365px;">
+              <canvas id="mini_tab_1_c_chart" width="auto" height="60"></canvas>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="mini_tab_2_c" style="min-height:365px;">
+              <canvas id="mini_tab_2_c_chart" width="auto" height="60"></canvas>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="mini_tab_3_c" style="min-height:365px;">
+              <canvas id="mini_tab_3_c_chart" width="auto" height="60"></canvas>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="mini_tab_4_c" style="min-height:365px;">
+              <canvas id="mini_tab_4_c_chart" width="auto" height="60"></canvas>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="mini_tab_5_c" style="min-height:365px;">
+              <canvas id="mini_tab_5_c_chart" width="auto" height="60"></canvas>
+            </div>
+          </div>
+          <ul class="nav nav-tabs pod_tabs" role="tablist">
+            <li role="presentation" class="active">
+              <a href="#mini_tab_1_c" id="mini_tab_1_a" aria-controls="mini_tab_1_c" role="tab" data-toggle="tab">{{ text_tab_1_1 }}<br>{{ results_charts_all_sessions_count }}<br>
+                <canvas id="mini_tab_1_a_chart" width="auto" height="70"></canvas>
+              </a>
+            </li>
+            <li role="presentation">
+              <a href="#mini_tab_2_c" id="mini_tab_2_a" aria-controls="mini_tab_2_c" role="tab" data-toggle="tab">{{ text_tab_1_2 }}<br>{{ results_charts_all_users_count }}<br>
+                <canvas id="mini_tab_2_a_chart" width="auto" height="70"></canvas>
+              </a>
+            </li>
+            <li role="presentation">
+              <a href="#mini_tab_3_c" id="mini_tab_3_a" aria-controls="mini_tab_3_c" role="tab" data-toggle="tab">{{ text_tab_1_3 }}<br>{{ results_charts_all_views_count }}<br>
+                <canvas id="mini_tab_3_a_chart" width="auto" height="70"></canvas>
+              </a>
+            </li>
+            <li role="presentation">
+              <a href="#mini_tab_4_c" id="mini_tab_4_a" aria-controls="mini_tab_4_c" role="tab" data-toggle="tab">{{ text_tab_1_4 }}<br>{{ results_charts_all_sessiontopage_count }}<br>
+                <canvas id="mini_tab_4_a_chart" width="auto" height="70"></canvas>
+              </a>
+            </li>
+            <li role="presentation">
+              <a href="#mini_tab_5_c" id="mini_tab_5_a" aria-controls="mini_tab_5_c" role="tab" data-toggle="tab">{{ text_tab_1_5 }}<br>{{ results_charts_sessions_seconds }}<br>
+                <canvas id="mini_tab_5_a_chart" width="auto" height="70"></canvas>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="pages">
+        <div class="col-sm-6 col-xs-12">
+          <h4 class="text-center text-bold">{{ text_pagesall }}</h4>
+          <table id="page_table" class="display">
+            <thead>
+            <tr>
+              <th scope="col">{{ text_pages }}</th><th scope="col">{{ text_pageview }}</th><th scope="col">{{ text_percentage }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for pageList in pageLists %}
+              <tr>
+                <td>
+                  <div class="truncate">
+                    <i class="fa fa-file-o" style="margin-right:5px;font-size:18px;"></i><span class="txt_wrap">{{ pageList.title }}</span>
+                  </div>
+                  <div class="truncate">
+                    <i class="fa fa-arrow-circle-o-right" style="margin-right:5px;font-size:18px;"></i><a href="{{ pageList.urla }}">{{ pageList.url }}</a>
+                  </div>
+                </td>
+                <td>{{ pageList.views }}</td>
+                <td>{{ pageList.percent }}%</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <h4 class="text-center text-bold">{{ text_pagespop }}</h4>
+          <canvas id="pages_chart_spa" width="100" height="50"></canvas>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="realtime">
+        <div class="col-sm-6 col-xs-12">
+          <div id="spa_realtime_activenow">
+            <div class="spa_realtime_rn">{{ text_realtimes_txt_1 }}</div>
+            <div id="spa_rttotal">{{ spa_online_users }}</div>
+            <div class="spa_realtime_an">{{ text_realtimes_txt_2 }}</div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <table id="page_online_table" class="display">
+            <thead><tr><th scope="col">{{ text_pages }}</th></tr></thead>
+            <tbody id="page_online_list">
+            {% for pageonlineList in pageonlineLists %}
+              <tr><td><a href="{{ pageonlineList.realtimepageurl }}" target="_blank">{{ pageonlineList.realtimepage }} <i class="fa fa-external-link-square"></i></a></td></tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="countries">
+        <div class="col-sm-6 col-xs-12">
+          <h4 class="text-center text-bold">{{ text_countryall }}</h4>
+          <table id="country_table" class="display">
+            <thead><tr><th scope="col">{{ text_country }}</th><th scope="col">{{ text_sessions }}</th><th scope="col">{{ text_percentage }}</th></tr></thead>
+            <tbody>
+            {% for countryList in countryLists %}
+              <tr><td><div class="truncate"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="flag flag-{{ countryList.flag_code }}"><span class="txt_wrap">{{ countryList.country }}</span></div></td><td>{{ countryList.sessions }}</td><td>{{ countryList.percent }}%</td></tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <h4 class="text-center text-bold">{{ text_countrypop }}</h4>
+          <canvas id="countries_chart_spa" width="100" height="50"></canvas>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="browsers">
+        <div class="col-sm-6 col-xs-12">
+          <h4 class="text-center text-bold">{{ text_browserall }}</h4>
+          <table id="browser_table" class="display">
+            <thead><tr><th scope="col">{{ text_browser }}</th><th scope="col">{{ text_sessions }}</th><th scope="col">{{ text_percentage }}</th></tr></thead>
+            <tbody>
+            {% for browserList in browserLists %}
+              <tr><td><div class="truncate"><img src="/admin/view/javascript/spanalytics/browsers/{{ browserList.iconbrowser }}.png" alt="{{ browserList.browser }}" class="icon_os" /><span class="txt_wrap">{{ browserList.browser }}</span></div></td><td>{{ browserList.sessions }}</td><td>{{ browserList.percent }}%</td></tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <h4 class="text-center text-bold">{{ text_browserpop }}</h4>
+          <canvas id="browsers_chart_spa" width="100" height="50"></canvas>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="lang">
+        <div class="col-sm-6 col-xs-12">
+          <h4 class="text-center text-bold">{{ text_languageall }}</h4>
+          <table id="language_table" class="display">
+            <thead><tr><th scope="col">{{ text_language }}</th><th scope="col">{{ text_sessions }}</th><th scope="col">{{ text_percentage }}</th></tr></thead>
+            <tbody>
+            {% for languageList in languageLists %}
+              <tr><td><div class="truncate"><i class="fa fa-font device_icon"></i> <span class="txt_wrap">{{ languageList.language }}</span></div></td><td>{{ languageList.sessions }}</td><td>{{ languageList.percent }}%</td></tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <h4 class="text-center text-bold">{{ text_languagepop }}</h4>
+          <canvas id="lang_chart_spa" width="100" height="50"></canvas>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="os">
+        <div class="col-sm-6 col-xs-12">
+          <h4 class="text-center text-bold">{{ text_osall }}</h4>
+          <table id="os_table" class="display">
+            <thead><tr><th scope="col">{{ text_os }}</th><th scope="col">{{ text_sessions }}</th><th scope="col">{{ text_percentage }}</th></tr></thead>
+            <tbody>
+            {% for osList in osLists %}
+              <tr><td><div class="truncate"><img src="/admin/view/javascript/spanalytics/os/{{ osList.icon_os }}.png" alt="{{ osList.os }}" class="icon_os" /><span class="txt_wrap">{{ osList.os }}</span></div></td><td>{{ osList.sessions }}</td><td>{{ osList.percent }}%</td></tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <h4 class="text-center text-bold">{{ text_ospop }}</h4>
+          <canvas id="os_chart_spa" width="100" height="50"></canvas>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="devices">
+        <div class="col-sm-6 col-xs-12">
+          <h4 class="text-center text-bold">{{ text_deviceall }}</h4>
+          <table id="device_table" class="display">
+            <thead><tr><th scope="col">{{ text_device }}</th><th scope="col">{{ text_sessions }}</th><th scope="col">{{ text_percentage }}</th></tr></thead>
+            <tbody>
+            {% for deviceList in deviceLists %}
+              <tr><td><div class="truncate"><i class="fa {{ deviceList.image }} device_icon"></i> <span class="txt_wrap">{{ deviceList.device }}</span></div></td><td>{{ deviceList.sessions }}</td><td>{{ deviceList.percent }}%</td></tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <h4 class="text-center text-bold">{{ text_devicepop }}</h4>
+          <canvas id="device_chart_spa" width="100" height="50"></canvas>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="screenres">
+        <div class="col-sm-6 col-xs-12">
+          <h4 class="text-center text-bold">{{ text_screenrespop }}</h4>
+          <table id="screenres_table" class="display">
+            <thead><tr><th scope="col">{{ text_screenres }}</th><th scope="col">{{ text_sessions }}</th><th scope="col">{{ text_percentage }}</th></tr></thead>
+            <tbody>
+            {% for screenresList in screenresLists %}
+              <tr><td><div class="truncate"><i class="fa fa-arrows-alt device_icon"></i> <span class="txt_wrap">{{ screenresList.screenres }}</span></div></td><td>{{ screenresList.sessions }}</td><td>{{ screenresList.percent }}%</td></tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <h4 class="text-center text-bold">{{ text_screenrespop }}</h4>
+          <canvas id="screan_chart_spa" width="100" height="50"></canvas>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="source">
+        <div class="col-sm-6 col-xs-12">
+          <h4 class="text-center text-bold">{{ text_sourceall }}</h4>
+          <table id="source_table" class="display">
+            <thead><tr><th scope="col">{{ text_source }}</th><th scope="col">{{ text_sessions }}</th><th scope="col">{{ text_percentage }}</th></tr></thead>
+            <tbody>
+            {% for sourceList in sourceLists %}
+              <tr>
+                <td>
+                  <div class="truncate">
+                    <i class="fa fa-arrow-circle-o-right" style="margin-right:5px;font-size:18px;"></i>
+                    {% if sourceList.source == "(direct)" %}
+                      {{ sourceList.sourcetext }}
+                    {% else %}
+                      <a href="{{ sourceList.source }}">{{ sourceList.source }}</a>
+                    {% endif %}
+                  </div>
+                </td>
+                <td>{{ sourceList.sessions }}</td>
+                <td>{{ sourceList.percent }}%</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <h4 class="text-center text-bold">{{ text_sourcepop }}</h4>
+          <canvas id="source_chart_spa" width="100" height="50"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #spa_realtime_activenow {text-align:center;padding:5px;}
+  #spa_realtime_activenow .spa_realtime_rn{font-size:200%;}
+  #spa_rttotal{font-size:600%;line-height:normal;}
+  .spa_realtime_dimension ul{list-style:none;padding:0;margin:0;}
+  #spanalytics {min-height:530px;border-top:3px solid #d10024;}
+  #spanalytics canvas {max-height:350px !important;}
+  #spanalytics .info_top_header {margin-left:10px;background:#d10024;color:#fff;padding:2px 5px;border-radius:5px;}
+  #spanalytics .pod_tabs {text-align:center;display:flex;}
+  #spanalytics .pod_tabs li {list-style-type:none;flex-basis:auto;flex-grow:1;max-width:20%;}
+  #spanalytics .pod_tabs li a {font-size:14px;border-bottom:3px solid #c9c9c9;font-weight:700;padding:3px;padding-top:5px;}
+  #spanalytics .pod_tabs li.active a {font-size:14px;border-bottom:3px solid #d10024;font-weight:700;padding:3px;padding-top:5px;}
+  #spanalytics .pod_tabs li a div {display:flex;flex-direction:column;align-items:center;}
+  #spanalytics .nav.nav-tabs {border-top:1px solid #ddd;}
+  #spanalytics .nav.nav-tabs li {}
+  #spanalytics .nav.nav-tabs li.active {}
+  #spanalytics > .nav.nav-tabs li.active a {border-top:3px solid #d10024;font-weight:400;}
+  #spanalytics .tab-content .nav.nav-tabs li.active a {font-size:14px;border-bottom:3px solid #d10024;font-weight:700;padding:3px;padding-top:5px;}
+  #spanalytics .nav.nav-tabs li a {color:#4c4d5a;border-top:3px solid #ffffff;}
+  #spanalytics .nav.nav-tabs li a:hover {background:none;}
+  #spanalytics .nav-tabs > li > a {margin:0;}
+  #spanalytics thead > tr > th:nth-child(1) {width:60% !important;}
+  .truncate {white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .device_icon {margin-right:5px;font-size:18px;min-width:20px;text-align:center;color:#3C8DBC;}
+  .icon_os {max-width:20px;max-height:20px;margin-right:5px;}
+  .flag {width:16px;height:11px;background:url(/admin/view/javascript/spanalytics/flags.png) no-repeat;margin-right:0.7em;}
+  .flag.flag-ad {background-position:-16px 0}
+  .flag.flag-ae {background-position:-32px 0}
+  .flag.flag-af {background-position:-48px 0}
+  .flag.flag-ag {background-position:-64px 0}
+  .flag.flag-ai {background-position:-80px 0}
+  .flag.flag-al {background-position:-96px 0}
+  .flag.flag-am {background-position:-112px 0}
+  .flag.flag-an {background-position:-128px 0}
+  .flag.flag-ao {background-position:-144px 0}
+  .flag.flag-ar {background-position:-160px 0}
+  .flag.flag-as {background-position:-176px 0}
+  .flag.flag-at {background-position:-192px 0}
+  .flag.flag-au {background-position:-208px 0}
+  .flag.flag-aw {background-position:-224px 0}
+  .flag.flag-az {background-position:-240px 0}
+  .flag.flag-ba {background-position:0 -11px}
+  .flag.flag-bb {background-position:-16px -11px}
+  .flag.flag-bd {background-position:-32px -11px}
+  .flag.flag-be {background-position:-48px -11px}
+  .flag.flag-bf {background-position:-64px -11px}
+  .flag.flag-bg {background-position:-80px -11px}
+  .flag.flag-bh {background-position:-96px -11px}
+  .flag.flag-bi {background-position:-112px -11px}
+  .flag.flag-bj {background-position:-128px -11px}
+  .flag.flag-bm {background-position:-144px -11px}
+  .flag.flag-bn {background-position:-160px -11px}
+  .flag.flag-bo {background-position:-176px -11px}
+  .flag.flag-br {background-position:-192px -11px}
+  .flag.flag-bs {background-position:-208px -11px}
+  .flag.flag-bt {background-position:-224px -11px}
+  .flag.flag-bv {background-position:-240px -11px}
+  .flag.flag-bw {background-position:0 -22px}
+  .flag.flag-by {background-position:-16px -22px}
+  .flag.flag-bz {background-position:-32px -22px}
+  .flag.flag-ca {background-position:-48px -22px}
+  .flag.flag-catalonia {background-position:-64px -22px}
+  .flag.flag-cd {background-position:-80px -22px}
+  .flag.flag-cf {background-position:-96px -22px}
+  .flag.flag-cg {background-position:-112px -22px}
+  .flag.flag-ch {background-position:-128px -22px}
+  .flag.flag-ci {background-position:-144px -22px}
+  .flag.flag-ck {background-position:-160px -22px}
+  .flag.flag-cl {background-position:-176px -22px}
+  .flag.flag-cm {background-position:-192px -22px}
+  .flag.flag-cn {background-position:-208px -22px}
+  .flag.flag-co {background-position:-224px -22px}
+  .flag.flag-cr {background-position:-240px -22px}
+  .flag.flag-cu {background-position:0 -33px}
+  .flag.flag-cv {background-position:-16px -33px}
+  .flag.flag-cw {background-position:-32px -33px}
+  .flag.flag-cy {background-position:-48px -33px}
+  .flag.flag-cz {background-position:-64px -33px}
+  .flag.flag-de {background-position:-80px -33px}
+  .flag.flag-dj {background-position:-96px -33px}
+  .flag.flag-dk {background-position:-112px -33px}
+  .flag.flag-dm {background-position:-128px -33px}
+  .flag.flag-do {background-position:-144px -33px}
+  .flag.flag-dz {background-position:-160px -33px}
+  .flag.flag-ec {background-position:-176px -33px}
+  .flag.flag-ee {background-position:-192px -33px}
+  .flag.flag-eg {background-position:-208px -33px}
+  .flag.flag-eh {background-position:-224px -33px}
+  .flag.flag-england {background-position:-240px -33px}
+  .flag.flag-er {background-position:0 -44px}
+  .flag.flag-es {background-position:-16px -44px}
+  .flag.flag-et {background-position:-32px -44px}
+  .flag.flag-eu {background-position:-48px -44px}
+  .flag.flag-fi {background-position:-64px -44px}
+  .flag.flag-fj {background-position:-80px -44px}
+  .flag.flag-fk {background-position:-96px -44px}
+  .flag.flag-fm {background-position:-112px -44px}
+  .flag.flag-fo {background-position:-128px -44px}
+  .flag.flag-fr {background-position:-144px -44px}
+  .flag.flag-ga {background-position:-160px -44px}
+  .flag.flag-gb {background-position:-176px -44px}
+  .flag.flag-gd {background-position:-192px -44px}
+  .flag.flag-ge {background-position:-208px -44px}
+  .flag.flag-gf {background-position:-224px -44px}
+  .flag.flag-gg {background-position:-240px -44px}
+  .flag.flag-gh {background-position:0 -55px}
+  .flag.flag-gi {background-position:-16px -55px}
+  .flag.flag-gl {background-position:-32px -55px}
+  .flag.flag-gm {background-position:-48px -55px}
+  .flag.flag-gn {background-position:-64px -55px}
+  .flag.flag-gp {background-position:-80px -55px}
+  .flag.flag-gq {background-position:-96px -55px}
+  .flag.flag-gr {background-position:-112px -55px}
+  .flag.flag-gs {background-position:-128px -55px}
+  .flag.flag-gt {background-position:-144px -55px}
+  .flag.flag-gu {background-position:-160px -55px}
+  .flag.flag-gw {background-position:-176px -55px}
+  .flag.flag-gy {background-position:-192px -55px}
+  .flag.flag-hk {background-position:-208px -55px}
+  .flag.flag-hm {background-position:-224px -55px}
+  .flag.flag-hn {background-position:-240px -55px}
+  .flag.flag-hr {background-position:0 -66px}
+  .flag.flag-ht {background-position:-16px -66px}
+  .flag.flag-hu {background-position:-32px -66px}
+  .flag.flag-ic {background-position:-48px -66px}
+  .flag.flag-id {background-position:-64px -66px}
+  .flag.flag-ie {background-position:-80px -66px}
+  .flag.flag-il {background-position:-96px -66px}
+  .flag.flag-im {background-position:-112px -66px}
+  .flag.flag-in {background-position:-128px -66px}
+  .flag.flag-io {background-position:-144px -66px}
+  .flag.flag-iq {background-position:-160px -66px}
+  .flag.flag-ir {background-position:-176px -66px}
+  .flag.flag-is {background-position:-192px -66px}
+  .flag.flag-it {background-position:-208px -66px}
+  .flag.flag-je {background-position:-224px -66px}
+  .flag.flag-jm {background-position:-240px -66px}
+  .flag.flag-jo {background-position:0 -77px}
+  .flag.flag-jp {background-position:-16px -77px}
+  .flag.flag-ke {background-position:-32px -77px}
+  .flag.flag-kg {background-position:-48px -77px}
+  .flag.flag-kh {background-position:-64px -77px}
+  .flag.flag-ki {background-position:-80px -77px}
+  .flag.flag-km {background-position:-96px -77px}
+  .flag.flag-kn {background-position:-112px -77px}
+  .flag.flag-kp {background-position:-128px -77px}
+  .flag.flag-kr {background-position:-144px -77px}
+  .flag.flag-kurdistan {background-position:-160px -77px}
+  .flag.flag-kw {background-position:-176px -77px}
+  .flag.flag-ky {background-position:-192px -77px}
+  .flag.flag-kz {background-position:-208px -77px}
+  .flag.flag-la {background-position:-224px -77px}
+  .flag.flag-lb {background-position:-240px -77px}
+  .flag.flag-lc {background-position:0 -88px}
+  .flag.flag-li {background-position:-16px -88px}
+  .flag.flag-lk {background-position:-32px -88px}
+  .flag.flag-lr {background-position:-48px -88px}
+  .flag.flag-ls {background-position:-64px -88px}
+  .flag.flag-lt {background-position:-80px -88px}
+  .flag.flag-lu {background-position:-96px -88px}
+  .flag.flag-lv {background-position:-112px -88px}
+  .flag.flag-ly {background-position:-128px -88px}
+  .flag.flag-ma {background-position:-144px -88px}
+  .flag.flag-mc {background-position:-160px -88px}
+  .flag.flag-md {background-position:-176px -88px}
+  .flag.flag-me {background-position:-192px -88px}
+  .flag.flag-mg {background-position:-208px -88px}
+  .flag.flag-mh {background-position:-224px -88px}
+  .flag.flag-mk {background-position:-240px -88px}
+  .flag.flag-ml {background-position:0 -99px}
+  .flag.flag-mm {background-position:-16px -99px}
+  .flag.flag-mn {background-position:-32px -99px}
+  .flag.flag-mo {background-position:-48px -99px}
+  .flag.flag-mp {background-position:-64px -99px}
+  .flag.flag-mq {background-position:-80px -99px}
+  .flag.flag-mr {background-position:-96px -99px}
+  .flag.flag-ms {background-position:-112px -99px}
+  .flag.flag-mt {background-position:-128px -99px}
+  .flag.flag-mu {background-position:-144px -99px}
+  .flag.flag-mv {background-position:-160px -99px}
+  .flag.flag-mw {background-position:-176px -99px}
+  .flag.flag-mx {background-position:-192px -99px}
+  .flag.flag-my {background-position:-208px -99px}
+  .flag.flag-mz {background-position:-224px -99px}
+  .flag.flag-na {background-position:-240px -99px}
+  .flag.flag-nc {background-position:0 -110px}
+  .flag.flag-ne {background-position:-16px -110px}
+  .flag.flag-nf {background-position:-32px -110px}
+  .flag.flag-ng {background-position:-48px -110px}
+  .flag.flag-ni {background-position:-64px -110px}
+  .flag.flag-nl {background-position:-80px -110px}
+  .flag.flag-no {background-position:-96px -110px}
+  .flag.flag-np {background-position:-112px -110px}
+  .flag.flag-nr {background-position:-128px -110px}
+  .flag.flag-nu {background-position:-144px -110px}
+  .flag.flag-nz {background-position:-160px -110px}
+  .flag.flag-om {background-position:-176px -110px}
+  .flag.flag-pa {background-position:-192px -110px}
+  .flag.flag-pe {background-position:-208px -110px}
+  .flag.flag-pf {background-position:-224px -110px}
+  .flag.flag-pg {background-position:-240px -110px}
+  .flag.flag-ph {background-position:0 -121px}
+  .flag.flag-pk {background-position:-16px -121px}
+  .flag.flag-pl {background-position:-32px -121px}
+  .flag.flag-pm {background-position:-48px -121px}
+  .flag.flag-pn {background-position:-64px -121px}
+  .flag.flag-pr {background-position:-80px -121px}
+  .flag.flag-ps {background-position:-96px -121px}
+  .flag.flag-pt {background-position:-112px -121px}
+  .flag.flag-pw {background-position:-128px -121px}
+  .flag.flag-py {background-position:-144px -121px}
+  .flag.flag-qa {background-position:-160px -121px}
+  .flag.flag-re {background-position:-176px -121px}
+  .flag.flag-ro {background-position:-192px -121px}
+  .flag.flag-rs {background-position:-208px -121px}
+  .flag.flag-ru {background-position:-224px -121px}
+  .flag.flag-rw {background-position:-240px -121px}
+  .flag.flag-sa {background-position:0 -132px}
+  .flag.flag-sb {background-position:-16px -132px}
+  .flag.flag-sc {background-position:-32px -132px}
+  .flag.flag-scotland {background-position:-48px -132px}
+  .flag.flag-sd {background-position:-64px -132px}
+  .flag.flag-se {background-position:-80px -132px}
+  .flag.flag-sg {background-position:-96px -132px}
+  .flag.flag-sh {background-position:-112px -132px}
+  .flag.flag-si {background-position:-128px -132px}
+  .flag.flag-sk {background-position:-144px -132px}
+  .flag.flag-sl {background-position:-160px -132px}
+  .flag.flag-sm {background-position:-176px -132px}
+  .flag.flag-sn {background-position:-192px -132px}
+  .flag.flag-so {background-position:-208px -132px}
+  .flag.flag-somaliland {background-position:-224px -132px}
+  .flag.flag-sr {background-position:-240px -132px}
+  .flag.flag-ss {background-position:0 -143px}
+  .flag.flag-st {background-position:-16px -143px}
+  .flag.flag-sv {background-position:-32px -143px}
+  .flag.flag-sx {background-position:-48px -143px}
+  .flag.flag-sy {background-position:-64px -143px}
+  .flag.flag-sz {background-position:-80px -143px}
+  .flag.flag-tc {background-position:-96px -143px}
+  .flag.flag-td {background-position:-112px -143px}
+  .flag.flag-tf {background-position:-128px -143px}
+  .flag.flag-tg {background-position:-144px -143px}
+  .flag.flag-th {background-position:-160px -143px}
+  .flag.flag-tibet {background-position:-176px -143px}
+  .flag.flag-tj {background-position:-192px -143px}
+  .flag.flag-tk {background-position:-208px -143px}
+  .flag.flag-tl {background-position:-224px -143px}
+  .flag.flag-tm {background-position:-240px -143px}
+  .flag.flag-tn {background-position:0 -154px}
+  .flag.flag-to {background-position:-16px -154px}
+  .flag.flag-tr {background-position:-32px -154px}
+  .flag.flag-tt {background-position:-48px -154px}
+  .flag.flag-tv {background-position:-64px -154px}
+  .flag.flag-tw {background-position:-80px -154px}
+  .flag.flag-tz {background-position:-96px -154px}
+  .flag.flag-ua {background-position:-112px -154px}
+  .flag.flag-ug {background-position:-128px -154px}
+  .flag.flag-um {background-position:-144px -154px}
+  .flag.flag-us {background-position:-160px -154px}
+  .flag.flag-uy {background-position:-176px -154px}
+  .flag.flag-uz {background-position:-192px -154px}
+  .flag.flag-va {background-position:-208px -154px}
+  .flag.flag-vc {background-position:-224px -154px}
+  .flag.flag-ve {background-position:-240px -154px}
+  .flag.flag-vg {background-position:0 -165px}
+  .flag.flag-vi {background-position:-16px -165px}
+  .flag.flag-vn {background-position:-32px -165px}
+  .flag.flag-vu {background-position:-48px -165px}
+  .flag.flag-wales {background-position:-64px -165px}
+  .flag.flag-wf {background-position:-80px -165px}
+  .flag.flag-ws {background-position:-96px -165px}
+  .flag.flag-xk {background-position:-112px -165px}
+  .flag.flag-ye {background-position:-128px -165px}
+  .flag.flag-yt {background-position:-144px -165px}
+  .flag.flag-za {background-position:-160px -165px}
+  .flag.flag-zanzibar {background-position:-176px -165px}
+  .flag.flag-zm {background-position:-192px -165px}
+  .flag.flag-zw {background-position:-208px -165px}
+  .flag.flag-xx {background-position:-224px -165px}
+</style>
+
+<script>
+  window.chartColors = {red:'rgb(219,34,33)',red_transparent:'rgba(219,34,33,0.2)',orange:'rgb(255,159,64)',orange_transparent:'rgba(255,159,64,0.2)',yellow:'rgb(255,205,86)',yellow_transparent:'rgba(255,205,86,0.2)',green:'rgb(0,227,150)',green_transparent:'rgba(0,227,150,0.2)',blue:'rgb(0,143,251)',blue_transparent:'rgba(0,143,251,0.2)',purple:'rgb(153,102,255)',purple_transparent:'rgba(153,102,255,0.2)',grey:'rgb(219,34,33)',grey_transparent:'rgba(219,34,33,0.2)'};
+
+  var mini_sessions = [{{ results_charts_sessions }}];
+  var mini_users = [{{ results_charts_users }}];
+  var mini_views = [{{ results_charts_pageviews }}];
+  var mini_pagesession = [{{ results_charts_sessiontopage }}];
+  var mini_timetosession = [{{ results_charts_session_to_time }}];
+
+  var pages = [{% set pageNumPV = 0 %}{% for pagecartsList in pagecartsLists %}{% set pageNumPV = pageNumPV + 1 %}{% if pageNumPV <= 9 %}{{ pagecartsList.views }},{% endif %}{% endfor %}];
+  var pages_labels = [{% set pageNumPT = 0 %}{% for pagecartsList in pagecartsLists %}{% set pageNumPT = pageNumPT + 1 %}{% if pageNumPT <= 9 %}"{{ pagecartsList.title }}",{% endif %}{% endfor %}];
+  var countries = [{% set countryNumCS = 0 %}{% for countrychartList in countrychartLists %}{% set countryNumCS = countryNumCS + 1 %}{% if countryNumCS <= 9 %}{{ countrychartList.sessions }},{% endif %}{% endfor %}];
+  var countries_labels = [{% set countryNumCC = 0 %}{% for countrychartList in countrychartLists %}{% set countryNumCC = countryNumCC + 1 %}{% if countryNumCC <= 9 %}"{{ countrychartList.country }}",{% endif %}{% endfor %}];
+  var browsers = [{% set browserNumBS = 0 %}{% for browserchartList in browserchartLists %}{% set browserNumBS = browserNumBS + 1 %}{% if browserNumBS <= 9 %}{{ browserchartList.sessions }},{% endif %}{% endfor %}];
+  var browsers_labels = [{% set browserNumBB = 0 %}{% for browserchartList in browserchartLists %}{% set browserNumBB = browserNumBB + 1 %}{% if browserNumBB <= 9 %}"{{ browserchartList.browser }}",{% endif %}{% endfor %}];
+  var languages = [{% set languageNumLS = 0 %}{% for languagechartList in languagechartLists %}{% set languageNumLS = languageNumLS + 1 %}{% if languageNumLS <= 9 %}{{ languagechartList.sessions }},{% endif %}{% endfor %}];
+  var languages_labels = [{% set languageNumLL = 0 %}{% for languagechartList in languagechartLists %}{% set languageNumLL = languageNumLL + 1 %}{% if languageNumLL <= 9 %}"{{ languagechartList.language }}",{% endif %}{% endfor %}];
+  var os = [{% set osNumOS = 0 %}{% for oschartList in oschartLists %}{% set osNumOS = osNumOS + 1 %}{% if osNumOS <= 9 %}{{ oschartList.sessions }},{% endif %}{% endfor %}];
+  var os_labels = [{% set osNumOO = 0 %}{% for oschartList in oschartLists %}{% set osNumOO = osNumOO + 1 %}{% if osNumOO <= 9 %}"{{ oschartList.os }}",{% endif %}{% endfor %}];
+  var device = [{% set deviceNumDS = 0 %}{% for devicechartList in devicechartLists %}{% set deviceNumDS = deviceNumDS + 1 %}{% if deviceNumDS <= 9 %}{{ devicechartList.sessions }},{% endif %}{% endfor %}];
+  var device_labels = [{% set deviceNumDD = 0 %}{% for devicechartList in devicechartLists %}{% set deviceNumDD = deviceNumDD + 1 %}{% if deviceNumDD <= 9 %}"{{ devicechartList.device }}",{% endif %}{% endfor %}];
+  var screan = [{% set screenresNumSE = 0 %}{% for screenreschartList in screenreschartLists %}{% set screenresNumSE = screenresNumSE + 1 %}{% if screenresNumSE <= 9 %}{{ screenreschartList.sessions }},{% endif %}{% endfor %}];
+  var screan_labels = [{% set screenresNumSC = 0 %}{% for screenreschartList in screenreschartLists %}{% set screenresNumSC = screenresNumSC + 1 %}{% if screenresNumSC <= 9 %}"{{ screenreschartList.screenres }}",{% endif %}{% endfor %}];
+  var source = [{% set sourceNumSC = 0 %}{% for sourcechartList in sourcechartLists %}{% set sourceNumSC = sourceNumSC + 1 %}{% if sourceNumSC <= 9 %}{{ sourcechartList.sessions }},{% endif %}{% endfor %}];
+  var source_labels = [{% set sourceNumSE = 0 %}{% for sourcechartList in sourcechartLists %}{% set sourceNumSE = sourceNumSE + 1 %}{% if sourceNumSE <= 9 %}"{{ sourcechartList.source }}",{% endif %}{% endfor %}];
+
+  //Array Days
+  var date = [{{ results_charts_date }}];
+
+  mini_option = {plugins:{legend:{display:false,}},interaction:{mode:null, intersect:false},tooltips:{enabled:false},hover:{mode:null},scales:{x:{display:false},y:{display:false}}}
+
+  var mini_sessions_a_option = {
+    type:'line',
+    data:{labels:date, datasets:[{label:"{{ text_sessions }}",backgroundColor:window.chartColors.blue_transparent,borderColor:window.chartColors.blue,data:mini_sessions,fill:true,}]},
+    options:mini_option
+  };
+  var mini_users_a_option = {
+    type:'line',
+    data:{labels:date, datasets:[{label:"{{ text_tab_1_2 }}",backgroundColor:window.chartColors.blue_transparent,borderColor:window.chartColors.blue,data:mini_users,fill:true,}]},
+    options:mini_option
+  };
+  var mini_views_a_option = {
+    type:'line',
+    data:{labels:date, datasets:[{label:"{{ text_pageview }}",backgroundColor:window.chartColors.blue_transparent,borderColor:window.chartColors.blue,data:mini_views,fill:true,}]},
+    options:mini_option
+  };
+  var mini_pagesession_a_option = {
+    type:'line',
+    data:{labels:date, datasets:[{label:"{{ text_tab_1_4 }}",backgroundColor:window.chartColors.blue_transparent,borderColor:window.chartColors.blue,data:mini_pagesession,fill:true,}]},
+    options:mini_option
+  };
+  var mini_timetosession_a_option = {
+    type:'line',
+    data:{labels:date, datasets:[{label:"{{ text_tab_1_5 }}",backgroundColor:window.chartColors.blue_transparent,borderColor:window.chartColors.blue,data:mini_timetosession,fill:true,}]},
+    options:mini_option
+  };
+  var mini_sessions_option = {
+    type:'line',
+    data:{labels:date, datasets:[{label:"{{ text_sessions }}",backgroundColor:window.chartColors.blue_transparent,borderColor:window.chartColors.blue,data:mini_sessions,fill:true,}]},
+    options:{plugins:{legend:{display:false,},},interaction:{intersect:false,}, responsive:true, tooltips:{mode:'index',intersect:false,}, hover:{mode:'nearest',intersect:true }}
+  };
+  var mini_users_option = {
+    type:'line',
+    data:{labels:date, datasets:[{label:"{{ text_tab_1_2 }}",backgroundColor:window.chartColors.blue_transparent,borderColor:window.chartColors.blue,data:mini_users,fill:true,}]},
+    options:{plugins:{legend:{display:false,},},interaction:{intersect:false,}, responsive:true, tooltips:{mode:'index',intersect:false,}, hover:{mode:'nearest',intersect:true }}
+  };
+  var mini_views_option = {
+    type:'line',
+    data:{labels:date, datasets:[{label:"{{ text_pageview }}",backgroundColor:window.chartColors.blue_transparent,borderColor:window.chartColors.blue,data:mini_views,fill:true,}]},
+    options:{plugins:{legend:{display:false,},},interaction:{intersect:false,}, responsive:true, tooltips:{mode:'index',intersect:false,}, hover:{mode:'nearest',intersect:true }}
+  };
+  var mini_pagesession_option = {
+    type:'line',
+    data:{labels:date, datasets:[{label:"{{ text_tab_1_4 }}",backgroundColor:window.chartColors.blue_transparent,borderColor:window.chartColors.blue,data:mini_pagesession,fill:true,}]},
+    options:{plugins:{legend:{display:false,},},interaction:{intersect:false,}, responsive:true, tooltips:{mode:'index',intersect:false,}, hover:{mode:'nearest',intersect:true }}
+  };
+  var mini_timetosession_option = {
+    type:'line',
+    data:{labels:date, datasets:[{label:"{{ text_tab_1_5 }}",backgroundColor:window.chartColors.blue_transparent,borderColor:window.chartColors.blue,data:mini_timetosession,fill:true,}]},
+    options:{plugins:{legend:{display:false,},},interaction:{intersect:false,}, responsive:true, tooltips:{mode:'index',intersect:false,}, hover:{mode:'nearest',intersect:true }}
+  };
+  var pages_option = {
+    type:'doughnut',
+    data:{labels:pages_labels, datasets:[{data:pages, backgroundColor:['rgb(66,132,244)','rgb(218,69,55)','rgb(244,180,0)','rgb(90,155,212)','rgb(250,167,90)','rgb(158,103,171)','rgb(206,112,88)','rgb(215,127,179)','rgb(129,212,250)','rgb(244,143,177)'], hoverOffset:0}]},
+    options:{plugins:{legend:{display:true, position:'right',  align:'right', labels:{usePointStyle:true, boxWidth:10, color:'rgb(0, 0, 0)'}}}}
+  };
+  var countries_option = {
+    type:'doughnut',
+    data:{labels:countries_labels, datasets:[{data:countries, backgroundColor:['rgb(66,132,244)','rgb(218,69,55)','rgb(244,180,0)','rgb(90,155,212)','rgb(250,167,90)','rgb(158,103,171)','rgb(206,112,88)','rgb(215,127,179)','rgb(129,212,250)','rgb(244,143,177)'], hoverOffset:0}]},
+    options:{plugins:{legend:{display:true, position:'right', labels:{usePointStyle:true, boxWidth:10, color:'rgb(0, 0, 0)'}}}}
+  };
+  var browsers_option = {
+    type:'doughnut',
+    data:{labels:browsers_labels, datasets:[{data:browsers, backgroundColor:['rgb(66,132,244)','rgb(218,69,55)','rgb(244,180,0)','rgb(90,155,212)','rgb(250,167,90)','rgb(158,103,171)','rgb(206,112,88)','rgb(215,127,179)','rgb(129,212,250)','rgb(244,143,177)'], hoverOffset:0}]},
+    options:{plugins:{legend:{display:true, position:'right', labels:{usePointStyle:true, boxWidth:10, color:'rgb(0, 0, 0)'}}}}
+  };
+  var languages_option = {
+    type:'doughnut',
+    data:{labels:languages_labels, datasets:[{data:languages, backgroundColor:['rgb(66,132,244)','rgb(218,69,55)','rgb(244,180,0)','rgb(90,155,212)','rgb(250,167,90)','rgb(158,103,171)','rgb(206,112,88)','rgb(215,127,179)','rgb(129,212,250)','rgb(244,143,177)'], hoverOffset:0}]},
+    options:{plugins:{legend:{display:true, position:'right', labels:{usePointStyle:true, boxWidth:10, color:'rgb(0, 0, 0)'}}}}
+  };
+  var os_option = {
+    type:'doughnut',
+    data:{labels:os_labels, datasets:[{data:os, backgroundColor:['rgb(66,132,244)','rgb(218,69,55)','rgb(244,180,0)','rgb(90,155,212)','rgb(250,167,90)','rgb(158,103,171)','rgb(206,112,88)','rgb(215,127,179)','rgb(129,212,250)','rgb(244,143,177)'], hoverOffset:0}]},
+    options:{plugins:{legend:{display:true, position:'right', labels:{usePointStyle:true, boxWidth:10, color:'rgb(0, 0, 0)'}}}}
+  };
+  var device_option = {
+    type:'doughnut',
+    data:{labels:device_labels, datasets:[{data:device, backgroundColor:['rgb(66,132,244)','rgb(218,69,55)','rgb(244,180,0)','rgb(136,136,136)'], hoverOffset:0}]},
+    options:{plugins:{legend:{display:true, position:'right', labels:{usePointStyle:true, boxWidth:10, color:'rgb(0, 0, 0)'}}}}
+  };
+  var screan_option = {
+    type:'doughnut',
+    data:{labels:screan_labels, datasets:[{data:screan, backgroundColor:['rgb(66,132,244)','rgb(218,69,55)','rgb(244,180,0)','rgb(90,155,212)','rgb(250,167,90)','rgb(158,103,171)','rgb(206,112,88)','rgb(215,127,179)','rgb(129,212,250)','rgb(244,143,177)'], hoverOffset:0}]},
+    options:{plugins:{legend:{display:true, position:'right', labels:{usePointStyle:true, boxWidth:10, color:'rgb(0, 0, 0)'}}}}
+  };
+  var source_option = {
+    type:'doughnut',
+    data:{labels:source_labels, datasets:[{data:source, backgroundColor:['rgb(66,132,244)','rgb(218,69,55)','rgb(244,180,0)','rgb(90,155,212)','rgb(250,167,90)','rgb(158,103,171)','rgb(206,112,88)','rgb(215,127,179)','rgb(129,212,250)','rgb(244,143,177)'], hoverOffset:0}]},
+    options:{plugins:{legend:{display:true, position:'right', labels:{usePointStyle:true, boxWidth:10, color:'rgb(0, 0, 0)'}}}}
+  };
+
+  var mini_sessions_chart = document.getElementById("mini_tab_1_c_chart").getContext("2d");
+  var mini_sessions_chart_p = new Chart(mini_sessions_chart, mini_sessions_option);
+  var mini_users_chart = document.getElementById("mini_tab_2_c_chart").getContext("2d");
+  var mini_users_chart_p = new Chart(mini_users_chart, mini_users_option);
+  var mini_views_chart = document.getElementById("mini_tab_3_c_chart").getContext("2d");
+  var mini_views_chart_p = new Chart(mini_views_chart, mini_views_option);
+  var mini_pagesession_chart = document.getElementById("mini_tab_4_c_chart").getContext("2d");
+  var mini_pagesession_chart_p = new Chart(mini_pagesession_chart, mini_pagesession_option);
+  var mini_timetosession_chart = document.getElementById("mini_tab_5_c_chart").getContext("2d");
+  var mini_timetosession_chart_p = new Chart(mini_timetosession_chart, mini_timetosession_option);
+
+  var mini_sessions_a_chart = document.getElementById("mini_tab_1_a_chart").getContext("2d");
+  var mini_sessions_a_chart_p = new Chart(mini_sessions_a_chart, mini_sessions_a_option);
+  var mini_users_a_chart = document.getElementById("mini_tab_2_a_chart").getContext("2d");
+  var mini_users_a_chart_p = new Chart(mini_users_a_chart, mini_users_a_option);
+  var mini_views_a_chart = document.getElementById("mini_tab_3_a_chart").getContext("2d");
+  var mini_views_a_chart_p = new Chart(mini_views_a_chart, mini_views_a_option);
+  var mini_pagesession_a_chart = document.getElementById("mini_tab_4_a_chart").getContext("2d");
+  var mini_pagesession_a_chart_p = new Chart(mini_pagesession_a_chart, mini_pagesession_a_option);
+  var mini_timetosession_a_chart = document.getElementById("mini_tab_5_a_chart").getContext("2d");
+  var mini_timetosession_a_chart_p = new Chart(mini_timetosession_a_chart, mini_timetosession_a_option);
+
+  var pages_chart = document.getElementById("pages_chart_spa").getContext("2d");
+  var pages_chart_p = new Chart(pages_chart, pages_option);
+  var countries_chart = document.getElementById("countries_chart_spa").getContext("2d");
+  var countries_chart_p = new Chart(countries_chart, countries_option);
+  var browsers_chart = document.getElementById("browsers_chart_spa").getContext("2d");
+  var browsers_chart_p = new Chart(browsers_chart, browsers_option);
+  var languages_chart = document.getElementById("lang_chart_spa").getContext("2d");
+  var languages_chart_p = new Chart(languages_chart, languages_option);
+  var os_chart = document.getElementById("os_chart_spa").getContext("2d");
+  var os_chart_p = new Chart(os_chart, os_option);
+  var device_chart = document.getElementById("device_chart_spa").getContext("2d");
+  var device_chart_p = new Chart(device_chart, device_option);
+  var screan_chart = document.getElementById("screan_chart_spa").getContext("2d");
+  var screan_chart_p = new Chart(screan_chart, screan_option);
+  var source_chart = document.getElementById("source_chart_spa").getContext("2d");
+  var source_chart_p = new Chart(source_chart, source_option);
+
+  $(document).ready(function(){$('#page_table').DataTable({"bLengthChange":false,bFilter:false,pageLength:5,"order":[[1,"desc"]]});});
+  $(document).ready(function(){$('#page_online_table').DataTable({"bLengthChange":false,bFilter:false,pageLength:7});});
+  $(document).ready(function(){$('#country_table').DataTable({"bLengthChange":false,bFilter:false,pageLength:7,"order":[[1,"desc"]]});});
+  $(document).ready(function(){$('#language_table').DataTable({"bLengthChange":false,bFilter:false,pageLength:7,"order":[[1,"desc"]]});});
+  $(document).ready(function(){$('#browser_table').DataTable({"bLengthChange":false,bFilter:false,pageLength:7,"order":[[1,"desc"]]});});
+  $(document).ready(function(){$('#os_table').DataTable({"bLengthChange":false,bFilter:false,pageLength:7,"order":[[1,"desc"]]});});
+  $(document).ready(function(){$('#device_table').DataTable({"bLengthChange":false,bFilter:false,pageLength:7,"order":[[1,"desc"]]});});
+  $(document).ready(function(){$('#screenres_table').DataTable({"bLengthChange":false,bFilter:false,pageLength:7,"order":[[1,"desc"]]});});
+  $(document).ready(function(){$('#source_table').DataTable({"bLengthChange":false,bFilter:false,pageLength:7,"order":[[1,"desc"]]});});
+
+
+  function updateSPACount() {
+    $.ajax({
+      url:"index.php?route=extension/dashboard/spanalytics/updateSPAOnlineUserCount&user_token={{ user_token }}",
+      cache: false,
+      success: function(html){
+        $("#spa_rttotal").html(html);
+      }
+    });
+  }
+  setInterval('updateSPACount()',10000);
+</script>

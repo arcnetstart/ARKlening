@@ -1,0 +1,157 @@
+{% if current_lang == 'en-gb' %}
+	<footer>
+		<div class="flex m-f desc">
+			<ul class="flex">
+				<li><a href="#what">What is ARC?</a></li>
+				<li><a href="#wallet">Wallets</a></li>
+				<li><a href="#arcnet">ARC Net</a></li>
+				<li><a href="#arcvreative">ARC Creative Hub</a></li>
+				<li><a href="#roadmap">Road map</a></li>
+				<li><a href="#marketing">Marketing</a></li>
+				<li><a href="#masternodes">Masternodes </a></li>
+				<li><a href="#support">Support</a></li>
+			</ul>
+		</div>
+		<div class="flex m-fs desc">
+			<img src="svg/logo.png" class="logo" alt="logo" title="logo">
+		</div>
+		<img class="mob" src="svg/Futer.png" style="width:100%;" alt="footer" title="footer">
+	</footer>
+
+{% endif %}
+{% if current_lang == 'ru-ru' %}
+	<footer>
+			<div class="flex m-f desc">
+				<ul class="flex">
+					<li><a href="#what">Что такое ARC?</a></li>
+					<li><a href="#wallet">Кошельки</a></li>
+					<li><a href="#arcnet">ARC Net</a></li>
+					<li><a href="#arcvreative">ARC Creative Hub</a></li>
+					<li><a href="#roadmap">Дорожная Карта</a></li>
+					<li><a href="#marketing">Маркетинг</a></li>
+					<li><a href="#masternodes">Мастерноды </a></li>
+					<li><a href="#support">Поддержка</a></li>
+				</ul>
+			</div>
+			<div class="flex m-fs desc">
+				<img src="../svg/logo.png" class="logo" alt="logo" title="logo">
+			</div>
+			<img class="mob" src="../svg/Futer.png" style="width:100%;" alt="footer" title="footer">
+		</footer>
+{% endif %}
+{% if current_lang == 'es-es' %}
+	<footer>
+		<div class="flex m-f desc">
+			<ul class="flex">
+				<li><a href="#what">¿Qué es ARC?</a></li>
+				<li><a href="#wallet">Billeteras</a></li>
+				<li><a href="#arcnet">ARC Net</a></li>
+				<li><a href="#arcvreative">ARC Creative Hub</a></li>
+				<li><a href="#roadmap">Mapa de Desarrollo</a></li>
+				<li><a href="#marketing">Marketing</a></li>
+				<li><a href="#masternodes">Masternodes </a></li>
+				<li><a href="#support">Soporte</a></li>
+			</ul>
+		</div>
+		<div class="flex m-fs desc">
+			<img src="../svg/logo.png" class="logo" alt="logo" title="logo">
+		</div>
+		<img class="mob" src="../svg/Futer.png" style="width:100%;" alt="footer" title="footer">
+	</footer>
+{% endif %}
+{% if current_lang == 'pt-pt' %}
+	<footer>
+		<div class="flex m-f desc">
+			<ul class="flex">
+				<li><a href="#what">O que é ARC?</a></li>
+				<li><a href="#wallet">Carteiras</a></li>
+				<li><a href="#arcnet">ARC Net</a></li>
+				<li><a href="#arcvreative">ARC Creative Hub</a></li>
+				<li><a href="#roadmap">Roteiro</a></li>
+				<li><a href="#marketing">Marketing</a></li>
+				<li><a href="#masternodes">Masternodes </a></li>
+				<li><a href="#support">Suporte</a></li>
+			</ul>
+		</div>
+		<div class="flex m-fs desc">
+			<img src="../svg/logo.png" class="logo" alt="logo" title="logo">
+
+		</div>
+		<img class="mob" src="../svg/Futer.png" style="width:100%;" alt="footer" title="footer">
+	</footer>
+{% endif %}
+	<script>
+		const id = 'anchorName2';
+		const yourElement = document.getElementById(id);
+		const y = yourElement.getBoundingClientRect().top + window.pageYOffset;
+
+		window.scrollTo({ top: y, behavior: 'smooth' });
+	</script>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function externalLinks() {
+			links = document.getElementsByTagName("a");
+			for (i = 0; i < links.length; i++) {
+				link = links[i];
+				if (link.getAttribute("href") && link.getAttribute("rel") == "external")
+					link.target = "_blank";
+			}
+		}
+		window.onload = externalLinks;
+			  /* ]]> */
+	</script>
+<!--<footer>
+  <div class="container">
+    <div class="row">
+      {% if informations %}
+      <div class="col-sm-3">
+        <h5>{{ text_information }}</h5>
+        <ul class="list-unstyled">
+         {% for information in informations %}
+          <li><a href="{{ information.href }}">{{ information.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      <div class="col-sm-3">
+        <h5>{{ text_service }}</h5>
+        <ul class="list-unstyled">
+          <li><a href="{{ contact }}">{{ text_contact }}</a></li>
+          <li><a href="{{ return }}">{{ text_return }}</a></li>
+          <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-3">
+        <h5>{{ text_extra }}</h5>
+        <ul class="list-unstyled">
+          <li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>
+          <li><a href="{{ voucher }}">{{ text_voucher }}</a></li>
+          <li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>
+          <li><a href="{{ special }}">{{ text_special }}</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-3">
+        <h5>{{ text_account }}</h5>
+        <ul class="list-unstyled">
+          <li><a href="{{ account }}">{{ text_account }}</a></li>
+          <li><a href="{{ order }}">{{ text_order }}</a></li>
+          <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
+          <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <p>{{ powered }}</p>
+  </div>
+</footer>--<
+{% for style in styles %}
+<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
+{% endfor %}
+{% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+<!--
+OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
+Please donate via PayPal to donate@opencart.com
+//-->
+</body></html>
