@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="374" height="1177" viewBox="0 0 374 1177" fill="none">
+<g clip-path="url(#clip0_587_3351)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M-80.4877 472.045L270.859 123H376.025L24.6777 472.045H-80.4877Z" fill="url(#paint0_linear_587_3351)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M-206 472.045L145.347 123H250.512L-100.835 472.045H-206Z" fill="#18CFAE" fill-opacity="0.08"/>
+</g>
+<defs>
+<filter id="filter0_d_587_3351" x="-53.6926" y="471.307" width="233.385" height="233.385" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2.34628"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_587_3351"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_587_3351" result="shape"/>
+</filter>
+<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#image0_587_3351" transform="scale(0.00125786 0.000822368)"/>
+</pattern>
+<filter id="filter1_d_587_3351" x="52.3074" y="786.307" width="269.385" height="139.385" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2.34628"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_587_3351"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_587_3351" result="shape"/>
+</filter>
+<pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#image1_587_3351" transform="scale(0.00195312)"/>
+</pattern>
+<pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#image2_587_3351" transform="scale(0.00195312)"/>
+</pattern>
+<pattern id="pattern3" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#image3_587_3351" transform="scale(0.00195312)"/>
+</pattern>
+<pattern id="pattern4" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#image4_587_3351" transform="scale(0.00195312)"/>
+</pattern>
+<pattern id="pattern5" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#image5_587_3351" transform="scale(0.00195312)"/>
+</pattern>
+<pattern id="pattern6" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#image6_587_3351" transform="scale(0.00195312)"/>
+</pattern>
+<pattern id="pattern7" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#image7_587_3351" transform="scale(0.00195312)"/>
+</pattern>
+<pattern id="pattern8" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#image8_587_3351" transform="scale(0.000488281)"/>
+</pattern>
+<linearGradient id="paint0_linear_587_3351" x1="376.025" y1="472.045" x2="376.025" y2="123" gradientUnits="userSpaceOnUse">
+<stop stop-color="#18CFAE" stop-opacity="0.09"/>
+<stop offset="1" stop-color="#0E0F30" stop-opacity="0"/>
+<stop offset="1" stop-color="#63D5C5" stop-opacity="0.44"/>
+</linearGradient>
+<linearGradient id="paint1_linear_587_3351" x1="180.04" y1="715.806" x2="180.04" y2="803.429" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFCF52"/>
+<stop offset="1" stop-color="#FFAF52" stop-opacity="0"/>
+<stop offset="1" stop-color="#41756A"/>
+</linearGradient>
+<linearGradient id="paint2_linear_587_3351" x1="121.465" y1="767.584" x2="121.465" y2="789.963" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFCF52" stop-opacity="0"/>
+<stop offset="1" stop-color="#FFCF52"/>
+</linearGradient>
+<linearGradient id="paint3_linear_587_3351" x1="230.128" y1="766.078" x2="230.128" y2="789.963" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFCF52" stop-opacity="0"/>
+<stop offset="1" stop-color="#FFCF52"/>
+</linearGradient>
+<linearGradient id="paint4_linear_587_3351" x1="45.8008" y1="1057.37" x2="314.942" y2="1057.36" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0D6557"/>
+<stop offset="1" stop-color="#21A497"/>
+</linearGradient>
+<clipPath id="clip0_587_3351">
+<rect width="375" height="1177" fill="white"/>
+</clipPath>
+<clipPath id="clip1_587_3351">
+<rect width="39.5718" height="39.5718" fill="white" transform="translate(160.254 567.008)"/>
+</clipPath>
+</defs>
+</svg>

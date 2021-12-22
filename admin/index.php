@@ -9,11 +9,11 @@ if (is_file('config.php')) {
 
 // Install
 if (!defined('DIR_APPLICATION')) {
-	header('Location: ../install/index.php');
+	header('Location: install/index.php');
 	exit;
 }
 
 // Startup
 require_once(DIR_SYSTEM . 'startup.php');
 
-start('admin');
+start('catalog');
